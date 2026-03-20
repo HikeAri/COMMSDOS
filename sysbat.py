@@ -88,18 +88,21 @@ sys_lock = True
 os.system('cls')
 while sys_lock == True:
     try:
-        with open('C:/commsdos-path/syspath', 'r') as pathfile:
+        with open('bootpath', 'r') as bootfilesdir:
+            bootpath = bootfilesdir.read()
+            bootfilesdir.close()
+        with open(f'{bootpath}/syspath', 'r') as pathfile:
             syspath = pathfile.read()
             pathfile.close()
-        with open('C:/commsdos-path/raw-syspath', 'r') as rwpathfile:
+        with open(f'{bootpath}/raw-syspath', 'r') as rwpathfile:
             raw_syspath = rwpathfile.read()
             rwpathfile.close()
-        with open('C:/commsdos-path/pw-store', 'r') as pwfile:
+        with open(f'{bootpath}/pw-store', 'r') as pwfile:
             pw_store = pwfile.read()
             pwfile.close()
         sys_lock = False
     except:
-        print("FATAL ERROR: [F402] Necessary files are absent in the C: drive. Please contact system administrators immediately.")
+        print("FATAL ERROR: [F402] Necessary files are absent in the drive. Please contact system administrators immediately.")
         input("Press ENTER to initiate system restart.")
 
 sysdir = ["floppy_disks", "dos_storage_dir", "ct_signalcatch", "act_ipfetch", "catalyst_pcie", "encmsg_temp"]
