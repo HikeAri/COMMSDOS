@@ -1,0 +1,14 @@
+-root
+
+-fd
+floppy_disks
+-dsd
+dos_storage_dir
+-ctsc
+ct_signalcatch
+-dnc
+dnc_logs
+-enc
+encmsg_temp
+-cat
+catalyst_pcie
