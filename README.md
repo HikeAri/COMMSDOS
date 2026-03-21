@@ -3,7 +3,7 @@
 ### A program that simulates the DOS environment in the terminal where the main function is to encrypt and decrypt messages, but it's not limited to those only!
 <i>[!] Disclaimer: The stock Python codes work on Windows machines only.</i><br>
 
-Hi! I'm a novice programmer and this is the first big project I've ever made. This is a stupid but fun little project that I use as a medium to improve and maintain my programming skills. I started this project back in November 2025 and on the 20th of March 2026, I decided to give it a shot and release this project out in the public. <a href='https://github.com/HikeAri/COMMSDOS/edit/master/README.md#the-uninteresting-lore'>If you're interested, learn about the lore behind this!</a><br>
+Hi! I'm a novice programmer and this is the first big project I've ever made. This is a stupid but fun little project that I use as a medium to improve and maintain my programming skills. I started this project back in November 2025 and on the 20th of March 2026, I decided to give it a shot and release this project out in the public. [If you're interested, learn about the lore behind this!](#the-uninteresting-lore) <br>
 
 ### What you can do:
 <ul>
@@ -63,7 +63,7 @@ Place the shortcut wherever you like (preferably where you can access it easily)
 ### All done! You can actually just run the `sysbat.py` manually or `test.py` if you want to skip the BIOS and login sequence.<br><br>
 
 ## Contributions
-Contributions are absolutely welcome! Either you want to improve the messy code structure, add other branches, add additional commands (<a href="https://github.com/HikeAri/COMMSDOS/edit/master/README.md#adding-extra-commands">see here</a>), etc.
+Contributions are absolutely welcome! Either you want to improve the messy code structure, add other branches, add additional commands ([see here](#adding-extra-commands)), etc.
 And yes, you can reuse the codes here in your projects if you want! There are no licenses whatsoever.<br><br>
 
 ## Adding extra commands & Creating the script
