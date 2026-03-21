@@ -63,7 +63,7 @@ Place the shortcut wherever you like (preferably where you can access it easily)
 ### All done! You can actually just run the `sysbat.py` manually or `test.py` if you want to skip the BIOS and login sequence.<br><br>
 
 ## Contributions
-Contributions are absolutely welcome! Either you want to improve the messy code structure, add other branches, add additional commands ([see here](#adding-extra-commands)), etc.
+Contributions are absolutely welcome! Either you want to improve the messy code structure, add other branches, add additional commands ([see here](#adding-extra-commands-&-creating-the-script)), etc.
 And yes, you can reuse the codes here in your projects if you want! There are no licenses whatsoever.<br><br>
 
 ## Adding extra commands & Creating the script
