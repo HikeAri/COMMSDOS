@@ -71,7 +71,27 @@ logo_ascii = """
 """
 
 os.system(f'title ORTHOS-1000B Desktop')
-pw_store = ["Adm123"]
+sys_lock = True
+os.system('cls')
+while sys_lock == True:
+    try:
+        with open('bootpath', 'r') as bootfilesdir:
+            bootpath = bootfilesdir.read()
+            bootfilesdir.close()
+        with open(f'{bootpath}/syspath', 'r') as pathfile:
+            syspath = pathfile.read()
+            pathfile.close()
+        with open(f'{bootpath}/raw-syspath', 'r') as rwpathfile:
+            raw_syspath = rwpathfile.read()
+            rwpathfile.close()
+        with open(f'{bootpath}/pw-store', 'r') as pwfile:
+            pw_store = pwfile.read()
+            pwfile.close()
+        sys_lock = False
+    except:
+        print("FATAL ERROR: [F402] Necessary files are absent in the drive. Please contact system administrators immediately.")
+        input("Press ENTER to initiate system restart.")
+
 sysdir = ["floppy_disks", "dos_storage_dir", "ct_signalcatch", "act_ipfetch", "catalyst_pcie", "encmsg_temp"]
 sysdata = ["dosinfo_model", "dosinfo_user", "ota_size.txt", "ota_sv.txt", "sysver", "sysbat.py", "test.py", "userdir_par", "enctempfile"]
 
@@ -615,7 +635,7 @@ def enc_seq():
                                 print(">No CT with matching ID found.")
                     elif inpsplit[0].lower() == "at":
                         sys_load(5, "Searching all nearby available CT's...")
-                        path = 'C:/Users/user/Desktop/COMMSDOS/ct_signalcatch'
+                        path = f'{syspath}/ct_signalcatch'
                         ct = []
                         for (dirpath, dirnames, filenames) in walk(path):
                             ct.extend(filenames)
@@ -772,7 +792,7 @@ def dnc_seq():
         cl.close()
 
     def dnclogs():
-        path = 'C:/Users/user/Desktop/COMMSDOS/dnc_logs'
+        path = f'{syspath}/dnc_logs'
         logs = []
         for (dirpath, dirnames, filenames) in walk(path):
             logs.extend(filenames)
@@ -1217,16 +1237,16 @@ while breakall == False:
                                 if cmdsplit[1][0:1] == "-":
                                     dirnameindex = parslist.index(cmdsplit[1]) + 1
                                     dirname = parslist[dirnameindex].strip("\n")
-                                    path = f'C:/Users/user/Desktop/COMMSDOS/{dirname}'
+                                    path = f'{syspath}/{dirname}'
                                     dirparslc = True
                                 else:
                                     dirparslc = False
 
                                 if dirparslc == True:
-                                    path = f'C:/Users/user/Desktop/COMMSDOS/{dirname}'
+                                    path = f'{syspath}/{dirname}'
                                 elif dirparslc == False:
                                     dirname = cmdsplit[1]
-                                    path = f'C:/Users/user/Desktop/COMMSDOS/{dirname}'
+                                    path = f'{syspath}/{dirname}'
                                 d = []
                                 f = []
                                 for (dirpath, dirnames, filenames) in walk(path):
@@ -1292,7 +1312,7 @@ while breakall == False:
                                 if filename in sysdata:
                                     print(">Cannot delete system files.")
                                 else:
-                                    terminalinp(f'del /f C:\\Users\\user\\Desktop\\COMMSDOS\\{dirname}\\{filename}')
+                                    terminalinp(f'del /f {raw_syspath}\\{dirname}\\{filename}')
                                     if termsuccess == True:
                                         print(">File deleted successfully.")
                             except FileNotFoundError:
@@ -1302,7 +1322,7 @@ while breakall == False:
                                     if filename in sysdata:
                                         print(">Cannot delete system files.")
                                     else:
-                                        terminalinp(f'del /f C:\\Users\\user\\Desktop\\COMMSDOS\\{dirname}\\{filename}')
+                                        terminalinp(f'del /f {raw_syspath}\\{dirname}\\{filename}')
                                         if termsuccess == True:
                                             print(">File deleted successfully.")
                                 except FileNotFoundError:
@@ -1320,7 +1340,7 @@ while breakall == False:
                                 if dirname in sysdir:
                                     print(">Cannot delete system directories.")
                                 else:
-                                    terminalinp(f'rmdir /s /q C:\\Users\\user\\Desktop\\COMMSDOS\\{dirname}')
+                                    terminalinp(f'rmdir /s /q {raw_syspath}\\{dirname}')
                                     if termsuccess == True:
                                         with open('userdir_par', 'r') as f1:
                                             lines = f1.readlines()
@@ -1361,7 +1381,7 @@ while breakall == False:
                                     if oldfname in sysdata:
                                         print(">Cannot rename system files.")
                                     else:
-                                        terminalinp(f'cd C:\\Users\\user\\Desktop\\COMMSDOS\\{dirname} & ren {oldfname} {newfname}')
+                                        terminalinp(f'cd {raw_syspath}\\{dirname} & ren {oldfname} {newfname}')
                                         if termsuccess == True:
                                             print(f">File '{oldfname}' has been changed to '{newfname}'.")
                                 except FileNotFoundError:
@@ -1395,7 +1415,7 @@ while breakall == False:
                                             ftest.close()
                                             print(f">File '{fname}' already exists in directory '{dirdsnname}'.")
                                         except FileNotFoundError:
-                                            terminalinp(f'copy C:\\Users\\user\\Desktop\\COMMSDOS\\{dirsrcname}\\{fname} C:\\Users\\user\\Desktop\\COMMSDOS\\{dirdsnname}\\')
+                                            terminalinp(f'copy {raw_syspath}\\{dirsrcname}\\{fname} {raw_syspath}\\{dirdsnname}\\')
                                             if termsuccess == True:
                                                 print(f">File '{fname}' has been copied to directory '{dirdsnname}'.")
                                     except FileNotFoundError:

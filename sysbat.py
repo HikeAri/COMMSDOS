@@ -261,9 +261,6 @@ def sysHelp():
     koi dir <dir_parameter>                                     Displays the KoiDir table of the specified directory contents.
     koi -dcl                                                    Disables TTC.
         -ecl                                                    Enables TTC.
-          
-    [Bad Apple Animation on Terminal]
-    badapple                                                    Plays the Bad Apple PV inside the terminal.
                         
     List of kernel commands:                        
     term:kernelntfc                                             System communicates to the kernel to change into DKA mode (Only available before entering DKA mode).
@@ -1520,8 +1517,6 @@ while breakall == False:
                                         extras.koi(cmdsplit[1])
                                     except IndexError:
                                         extras.koi()
-                        elif cmdsplit[0] == "badapple":
-                            extras.badapple()
                     else:
                         print(">Invalid command or parameters.")
                 except IndexError:

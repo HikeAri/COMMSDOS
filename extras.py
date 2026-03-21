@@ -125,22 +125,3 @@ def koi(par1="", par2="", par3=""):
     else:
         return print(">Unknown Koi command, please try again.")
     
-def badapple():
-    import threading
-    
-    def cpu_task_one():
-        time.sleep(2.5)
-        playsound("bappl.wav")
-
-    def cpu_task_two():
-        os.system("npm start")
-
-
-    t1 = threading.Thread(target=cpu_task_one)
-    t2 = threading.Thread(target=cpu_task_two)
-
-    t1.start()
-    t2.start()
-
-    t1.join()
-    t2.join()
