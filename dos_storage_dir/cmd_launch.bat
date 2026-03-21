@@ -1,2 +1,2 @@
-cd D:\Projects\COMMSDOS\
+cd D:/Projects/COMMSDOS
 py sysbat.py
