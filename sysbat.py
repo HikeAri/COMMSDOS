@@ -83,6 +83,7 @@ pc_manufacturer = r"""
                                                                 ╱_╱                                                                                                                                                                                                                                                                                                                                            
 """
 
+# Upon startup: rename window, clear terminal then read system path and password data.
 os.system(f'title ORTHOS-1000B Desktop')
 sys_lock = True
 os.system('cls')
@@ -105,6 +106,7 @@ while sys_lock == True:
         print("FATAL ERROR: [F402] Necessary files are absent in the drive. Please contact system administrators immediately.")
         input("Press ENTER to initiate system restart.")
 
+# Variables to store important files and directories so that it cannot be deleted or modified.
 sysdir = ["floppy_disks", "dos_storage_dir", "ct_signalcatch", "act_ipfetch", "catalyst_pcie", "encmsg_temp"]
 sysdata = ["dosinfo_model", "dosinfo_user", "ota_size.txt", "ota_sv.txt", "sysver", "sysbat.py", "test.py", "userdir_par", "enctempfile"]
 
@@ -117,7 +119,7 @@ def sys_shutdown():
     global breakall
     sys_pass = False
     sys_on = False
-    breakall = True
+    breakall = True     # Makes sure that all modules will stop looping after shutdown.
 
 def sys_load(d, s):
     spinner_chars = ['/', '-', '\\', '|']
@@ -129,7 +131,7 @@ def sys_load(d, s):
         time.sleep(0.1)
         i += 1
     sys.stdout.write("\n")
-    sys.stdout.flush()
+    sys.stdout.flush()      # Fakes a loading spinner to show that there's progress being made.
 
 def terminalinp(command):
     global termsuccess
@@ -145,7 +147,7 @@ def terminalinp(command):
         return result.stdout
     except subprocess.CalledProcessError as e:
         print(f">{e.stderr}")
-        termsuccess = False
+        termsuccess = False     # Inputs user commands to the Windows CMD terminal and gives output.
 
 def sys_pwseq():
     try:
