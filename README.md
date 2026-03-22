@@ -11,7 +11,7 @@ Hi! I'm a novice programmer and this is the first big project I've ever made. Th
   <li>Auto or manual decrypt messages</li>
   <li>File and directory manipulation</li>
   <li>Run other compatible Python scripts within the DOS (like running a software!)</li>
-  <li>Use or add additional commands (user-made or self-made command scripts)</li>
+  <li>Use or add additional commands (user-made or self-made command scripts) <a href="#">[See here]</a></li>
 </ul>
 
 ### Samples included:
@@ -63,20 +63,8 @@ Place the shortcut wherever you like (preferably where you can access it easily)
 ### All done! You can actually run `sysbat.py` manually or run `test.py` if you want to skip the BIOS and login sequence.<br><br>
 
 ## Contributions
-Contributions are absolutely welcome! Either you want to improve the messy code structure, add other branches, add additional commands ([see here](#adding-extra-commands-creating-the-script)), etc.
+Contributions are absolutely welcome! Either you want to improve the messy code structure, add other branches, create additional commands, etc.
 And yes, you can reuse the codes here in your projects if you want! There are no licenses whatsoever.<br><br>
-
-## Adding extra commands & Creating the script
-Coming soon twt<br><br>
-
-## The (uninteresting) short LORE
-<b>Background / Story setting</b><br>
-<i>Rise of the Opposition</i><br>
-It is the year 20XX, and Earth has changed its landscape. All the continents are changing, some separates, others sunk, and what’s left is combined. Countries either disbanded or expanded. Because of this, the Inter-League Association conducted a summit, announcing the international barrier standards. Most nations agreed upon the change, but there are some that rebel against it. The countries that took part in the rebellion created an alliance and named themselves the Axis.<br>
-
-<i>The Opposition Incident</i><br>
-As members of the Inter-Leagues noticed the alliance of a rebellion against the new international standards, they voted to disband them out of the association. This ultimately made the Axis wage an all-out war on nations that are associated with the ILA, which are the Allies.<br>
-During the war, communication through Comms Towers is crucial and those towers need to be operated with a safe and efficient OS.<br><br>
 
 ## Credits & Resources
 <a href="https://www.asciiart.eu/image-to-ascii">Image to ASCII art</a><br>
