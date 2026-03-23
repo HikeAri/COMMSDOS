@@ -11,7 +11,7 @@ Hi! I'm a novice programmer and this is the first big project I've ever made. Th
   <li>Auto or manual decrypt messages</li>
   <li>File and directory manipulation</li>
   <li>Run other compatible Python scripts within the DOS (like running a software!)</li>
-  <li>Use or add additional commands (user-made or self-made command scripts) <a href="#">[See here]</a></li>
+  <li>Use or add additional commands (user-made or self-made command scripts) <a href="https://github.com/HikeAri/COMMSDOS/wiki/Community%E2%80%90made-Commands">[See here]</a></li>
 </ul>
 
 ### Samples included:
