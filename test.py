@@ -1111,7 +1111,7 @@ while breakall == False:
                         sys_load(4, "Terminating all processes and restarting... ")
                         clear_terminal()
                         time.sleep(0.9)
-                        print(logo_ascii)
+                        boottmx.tmxout('logo_ascii')
                         time.sleep(3)
                         break
                     elif cmdsplit[0] == "term:kernelupd.pkg" and cmdsplit[1] == "--ota":
@@ -1155,7 +1155,7 @@ while breakall == False:
                             sys_load(4, "Terminating all processes and restarting... ")
                             clear_terminal()
                             time.sleep(0.9)
-                            print(logo_ascii)
+                            boottmx.tmxout('logo_ascii')
                             time.sleep(3)
                             break
                         elif autorst == False and updsuccess == True:
