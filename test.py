@@ -4,71 +4,11 @@ import subprocess
 import time
 import datetime
 import extras
+import boottmx
 from random import randint
 from tabulate import tabulate
 from os import walk
 
-logo_ascii = """
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                                                                                                                        
-                                                                                                                          .....                          
-                                                                                                                          ;:;;..                         
-                                                                                                                          ;::;:.                         
-                                                                                                              :;:....::.. .....                          
-                                                                                                            .;..      .::.                               
-                                                                                                           .:           ::                               
-                                                                                                           ;.            +                               
-                                                                                                           ::           .:                               
-                                                                                                            ::.       ..;.                               
-                                                                                                             .::.....:::.                                
-                                                                                                                ..::..                                   
-                                                                                                            ::::::::.                                    
-                                                                                                            +      .::.                                  
-                                                                                                            +       ..::.                                
-                                                                                                            +          .;.                               
-                                                                                                            +           ;.                               
-                                                                                                            +           ;.                               
-                                                                                                            +           ;.                               
-                                                                                                            +           ;.                               
-                                                                                                            +           ;.                               
-                                                                                                  ....::;;+++           ;.                               
-                                                                                         ..:+++;::::::::::::+           ;.                               
-                                                                                   .:++;::::::::::::::::::::+           ;.                               
-                                                                             ...;;::::::::::::::::::::::::::+           ;.                               
-                                                                           .:;::::::::::::::::::::::::::::::+           ;.                               
-                                                                         ..;::::::::::::::::::::::::::::::::+           ;.                               
-                                                                         .:;::::::::::::::::::::::::::::::::+.          ;.                               
-                                                                         .;;::::::::::::::::::;;;;;::::::::..::.        ;.                               
-                                                                         .::;;::::::::;;;:::......            .::.      ;.                               
-                                                                         .:....;;;+:.....                      ..;;;;;;;+.                               
-                                                                         .:.     ..;+:.                       .:                                         
-                                                                         .:.          ...:;;:.......          .+:..                                      
-                                                                         .:.                   ....:;;;;;::...:;.::.                                     
-                                                                         .:.                                      .::.                                   
-                                                                          .::.                                      .::.                                 
-                                                                           ..:::.                                    ..:..                               
-                                                                              ...:;:.                                  ::.                               
-                                                                                  ....:;;:.                          .:..                                
-                                                                                       .......:;;;;::..            .;..                                  
-                                                                                                       ......::;..;.                                     
-                                                                                                              .;::.                                      
-                                                                                                              .:.                                        
-
-
-
-
-                                                  _______ _            _  __         _          _        ____            _   _                      _____       
-                                                 |__   __| |          | |/ /        | |        (_)      |  _ \          | | | |                    / ____|      
-                                                    | |  | |__   ___  | ' / ___  ___| |____   ___  ___  | |_) |_ __ ___ | |_| |__   ___ _ __ ___  | |     ___   
-                                                    | |  | '_ \ / _ \ |  < / _ \/ __| '_ \ \ / / |/ __| |  _ <| '__/ _ \| __| '_ \ / _ \ '__/ __| | |    / _ \  
-                                                    | |  | | | |  __/ | . \ (_) \__ \ | | \ V /| | (__  | |_) | | | (_) | |_| | | |  __/ |  \__ \ | |___| (_) | 
-                                                    |_|  |_| |_|\___| |_|\_\___/|___/_| |_|\_/ |_|\___| |____/|_|  \___/ \__|_| |_|\___|_|  |___/  \_____\___(_)
-                                                                                                                
-                                                                                                                                                                                                                
-"""
 
 os.system(f'title ORTHOS-1000B Desktop')
 sys_lock = True
@@ -200,9 +140,7 @@ def sys_pwseq():
                     sys_load(4, "Terminating all processes and restaring... ")
                     clear_terminal()
                     time.sleep(1)
-                    print("Copyright (C) The Koshvic Brothers Co. Ltd., 200X. All rights reserved")
-                    print("This version of COMMSDOS is engineered specifically for ORTHOS Desktop Machines.")
-                    print("Under the MCHJ COMMS Act VIII Part 1, states: Do not distribute this system anywhere else as it is a private property to the Marshall military and government.")
+                    boottmx.tmxout('disclaimer')
                     time.sleep(0.7)
                     print("\nLoading sysbat...")
                     time.sleep(3)
@@ -1153,14 +1091,12 @@ while breakall == False:
                         dnc_seq()
                     elif cmdsplit[0] == "seq" and cmdsplit[1] == "logo_ascii.tmx":
                         clear_terminal()
-                        print(logo_ascii)
+                        boottmx.tmxout('logo_ascii')
                         time.sleep(4)
                         break
                     elif cmdsplit[0] == "seq" and cmdsplit[1] == "disclaimer.tmx":
                         clear_terminal()
-                        print("Copyright (C) The Koshvic Brothers Co. Ltd., 200X. All rights reserved")
-                        print("This version of COMMSDOS is engineered specifically for ORTHOS Desktop Machines.")
-                        print("Under the MCHJ COMMS Act VIII Part 1, states: Do not distribute this system anywhere else as it is a private property to the Marshall military and government.")
+                        boottmx.tmxout('disclaimer')
                         input("\n>Press 'Enter' to continue...")
                         clear_terminal()
                         break
