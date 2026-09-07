@@ -71,3 +71,4 @@ And yes, you can reuse the codes here in your projects if you want! There are no
 <a href="https://patorjk.com/software/taag/">ASCII text generator</a><br>
 <a href="https://pypi.org/project/playsound3/">Playsound3</a> - Forked from the <a href="https://github.com/TaylorSMarks/playsound">Playsound</a> library, originally created by Taylor Marks<br>
 <a href="https://pypi.org/project/tabulate/">Tabulate</a> • <a href="https://github.com/astanin/python-tabulate/tree/master">python-tabulate (GitHub)</a><br>
+DOSJournal Sound Effect by <a href="https://pixabay.com/users/universfield-28281460/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=485897">Universfield</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=485897">Pixabay</a>
