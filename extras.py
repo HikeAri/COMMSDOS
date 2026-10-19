@@ -124,4 +124,3 @@ def koi(par1="", par2="", par3=""):
         return print(">Colored terminal text: Enabled")
     else:
         return print(">Unknown Koi command, please try again.")
-    

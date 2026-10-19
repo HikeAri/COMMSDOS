@@ -160,6 +160,7 @@ def sys_pwseq():
 def sysHelp():
     print("""
     List of system commands:
+    clr                                                         Clears the terminal.
     copyf <dir_paramater(src)> <filename> <dir_parameter>       Copies an existing file from its source directory to a new directory.
     dir                                                         Displays the available files and directory names in the root (system) directory.
     dir <directory_name (or) dir_parameter>                     Displays the available files names on the specified directory.
@@ -170,6 +171,8 @@ def sysHelp():
     globalprint <text>                                          Globally prints text from host user to other available users nearby.
     help                                                        Displays a list of system and kernel commands.
     localprint <text>                                           Prints text from user into the terminal locally.
+               -adr --pcie                                      Prints PCIE slot addresses and its status.
+               -opt@<pcie_slot_address>                         Prints hardware information on the desired PCIE slot address.
     mkdir <dir_name> <dir_parameter>                            Creates a new directory with its specified call parameter.
     mkf <dir_parameter> <filename>                              Creates a new blank file in the specified directory.
     renf <dir_parameter> <current_filename> <new_filename>      Renames a file in a specified directory.
@@ -1085,6 +1088,8 @@ while breakall == False:
                                 print(">Error. File not found.")
                     elif cmdsplit[0] == "help":
                         sysHelp()
+                    elif cmdsplit[0] == "clr":
+                        clear_terminal()
                     elif cmdsplit[0] == "enc":
                         enc_seq()
                     elif cmdsplit[0] == "dnc":
@@ -1196,7 +1201,7 @@ while breakall == False:
                             except ValueError:
                                 print(f">Directory parameter '{cmdsplit[1]}' does not exist.")
                         else:
-                            path = 'C:/Users/user//Desktop/COMMSDOS'
+                            path = syspath
                             d = []
                             f = []
                             for (dirpath, dirnames, filenames) in walk(path):
@@ -1207,7 +1212,43 @@ while breakall == False:
                                 print("List of contents from: orthos1000b/root\n\n" + "   <<dir>>\n".join(d), end="   <<dir>>\n" + "\n".join(f) + "\n")
                     elif cmdsplit[0] == "localprint":
                         cmdsplit.pop(0)
-                        print(">"+" ".join(cmdsplit))
+                        if cmdsplit[0][0:5] == "-opt@":
+                            try:
+                                with open(f"catalyst_pcie/PCIE2_{cmdsplit[0][5::]}") as slotaddr:
+                                    memcontent = slotaddr.read()
+                                    slotaddr.close()
+                                print(">Gathering hardware information...")
+                                if len(memcontent) != 0:
+                                    time.sleep(0.5)
+                                    print(f">\n{memcontent}")
+                                else:
+                                    print(">Cannot gather information from the address as it is offline.")
+                            except FileNotFoundError:
+                                print(">Invalid PCIE slot address.")
+                        elif cmdsplit[0][0:4] == "-adr" and cmdsplit[1][0:6] == "--pcie":
+                            path = f'{syspath}/catalyst_pcie'
+                            f = []
+                            for (dirpath, dirnames, filenames) in walk(path):
+                                f.extend(filenames)
+                                break
+                            if len(f) != 0:
+                                pciestat = []
+                                for i in range(3):
+                                    with open(f"catalyst_pcie/{f[i]}") as slotaddr:
+                                        memcontent = slotaddr.read()
+                                        slotaddr.close()
+                                    if len(memcontent) != 0:
+                                        pciestat.append("ONLINE")
+                                    else:
+                                        pciestat.append("OFFLINE")
+
+                                print(">Checking hardware addresses and status...")
+                                time.sleep(0.5)
+                                slotheader = ["Address", "Status"]
+                                slotdata = [[f[0],pciestat[0]],[f[1],pciestat[1]],[f[2],pciestat[2]]]
+                                print(tabulate(slotdata, headers=slotheader, tablefmt="plain"))
+                        else:
+                            print(">"+" ".join(cmdsplit))
                     elif cmdsplit[0] == "globalprint":
                         sys_load(4, "Printing message to all available CT's... ")
                         cmdsplit.pop(0)

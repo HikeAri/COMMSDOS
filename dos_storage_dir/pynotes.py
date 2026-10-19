@@ -3,6 +3,9 @@ import datetime
 def changelog():
 	print('pynotes for COMMSDOS Version: 1.5.1a')
 	print('=--==============================--=\n')
+	print("-Changed --exit command sequence (Users who exits pynotes without appending a note, there will be no datetime stamp).\n\n")
+	print('pynotes for COMMSDOS Version: 1.5.1a')
+	print('=--==============================--=\n')
 	print("-Added import of module 'datetime'")
 	print("-Added command '--refresh'")
 	print("-Added command '--version'")
@@ -60,6 +63,7 @@ def readall():
 
 print('\n>Welcome to pynotes for COMMSDOS desktops!')
 print('All your notes will be appended automatically. Type "--help" for list of commands.\n')
+tempstore = 0
 while True:
 	inp = str(input('> '))
 	inplist = inp.split()
@@ -68,9 +72,10 @@ while True:
 			n.write('\n')
 			n.close()
 	elif inp == '--exit':
-		with open('dos_storage_dir\\notes.txt', 'a') as n:
-			n.write(f'[^Note(s) as of {datetime.datetime.today().strftime("%d-%m-%Y, %I:%M %p")}] \n')
-			n.close()
+		if tempstore != 0:
+			with open('dos_storage_dir\\notes.txt', 'a') as n:
+				n.write(f'[^Note(s) as of {datetime.datetime.today().strftime("%d-%m-%Y, %I:%M %p")}] \n')
+				n.close()
 		print('>Exiting pynotes...')
 		break
 	elif inp == '--changelog':
@@ -93,4 +98,5 @@ while True:
 	else:
 		with open('dos_storage_dir\\notes.txt', 'a') as n:
 			n.write(inp + '\n')
+			tempstore += 1
 			n.close()
